@@ -1,0 +1,28 @@
+workspace_type: java
+
+directories:
+  WORKSPACE
+  BUILD
+
+# Automatically includes all relevant targets under the 'directories' above
+derive_targets_from_directories: true
+
+additional_languages:
+  # Uncomment any additional languages you want supported
+  # android
+  # dart
+  # go
+  # javascript
+  # kotlin
+  # python
+  # scala
+  # typescript
+
+build_flags:
+  # Additional flags to be provided to Bazel commands
+  --nojava_header_compilation
+
+test_flags:
+  # Additional flags to be provided to Bazel test
+
+java_language_level: 11
