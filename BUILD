@@ -1,16 +1,23 @@
-java_library(
-    name = "m",
-    javacopts=[
-        "-XepPatchChecks:DeadException",
-        "-XepPatchLocation:IN_PLACE",
+load("@contrib_rules_jvm//java:defs.bzl", "spotbugs_config")
+
+spotbugs_config(
+    name = "spotbugs-config",
+    effort = "default",
+    exclude_filter = "spotbugs-excludes.xml",
+    fail_on_warning = True,
+    visibility = [
+        "//visibility:public",
     ],
-    srcs = glob(["*.java"]),
 )
 
 java_binary(
-    name = 'app',
-    main_class = "Main",
+    name = "spotbugs_cli",
+    testonly = True,
+    main_class = "edu.umd.cs.findbugs.LaunchAppropriateUI",
+    visibility = [
+        "//visibility:public",
+    ],
     runtime_deps = [
-        ":m"
+        "@maven//:com_github_spotbugs_spotbugs"
     ],
 )

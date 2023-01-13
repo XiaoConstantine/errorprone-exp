@@ -100,6 +100,21 @@ http_archive(
     ],
 )
 
+http_archive(
+    name = "contrib_rules_jvm",
+    sha256 = "548f0583192ff79c317789b03b882a7be9b1325eb5d3da5d7fdcc4b7ca69d543",
+    strip_prefix = "rules_jvm-0.9.0",
+    url = "https://github.com/bazel-contrib/rules_jvm/archive/refs/tags/v0.9.0.tar.gz",
+)
+
+load("@contrib_rules_jvm//:repositories.bzl", "contrib_rules_jvm_deps")
+
+contrib_rules_jvm_deps()
+
+load("@contrib_rules_jvm//:setup.bzl", "contrib_rules_jvm_setup")
+
+contrib_rules_jvm_setup()
+
 local_repository(
     name = "a",
     path = "/Users/xiao/development/github.com/XiaoConstantine/gazelle-ext"
@@ -120,12 +135,14 @@ maven_install(
         "com.google.errorprone:error_prone_annotations:2.18.0",
         "com.google.errorprone:error_prone_check_api:2.18.0",
         "com.google.auto.service:auto-service:1.0.1",
+        "com.github.spotbugs:spotbugs:4.7.3",
         "com.google.guava:guava:31.1-jre",
         "com.google.inject:guice:5.1.0",
         "org.slf4j:slf4j-api:1.7.30",
         "org.slf4j:slf4j-jdk14:1.7.9",
     ],
     maven_install_json = "//:maven_install.json",
+    fetch_sources = True,
     repositories = [
         "https://repo1.maven.org/maven2",
     ],
