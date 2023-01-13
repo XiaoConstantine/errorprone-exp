@@ -1,14 +1,13 @@
 java_library(
     name = "m",
     srcs = glob(["Main.java"]),
-    javacopts = [
-        "-XepPatchChecks:DeadException",
-        "-XepPatchLocation:IN_PLACE",
+    plugins = [
+        ":plugin",
     ],
 )
 
-java_library(
-    name = "bug_checker",
+java_plugin(
+    name = "plugin",
     srcs = glob(["FooBarChecker.java"]),
     deps = [
         "@maven//:com_google_auto_service_auto_service",
@@ -23,6 +22,5 @@ java_binary(
     main_class = "Main",
     runtime_deps = [
         ":m",
-        ":bug_checker"
     ],
 )
