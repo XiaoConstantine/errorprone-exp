@@ -1,8 +1,7 @@
 workspace_type: java
 
 directories:
-  WORKSPACE
-  BUILD
+  errorprone-exp
 
 # Automatically includes all relevant targets under the 'directories' above
 derive_targets_from_directories: true
