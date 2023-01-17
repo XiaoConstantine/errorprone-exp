@@ -20,7 +20,7 @@ java_library(
 
 java_binary(
     name = "app",
-    main_class = "Main",
+    main_class = "errorprone.Main",
     runtime_deps = [
         ":m",
     ],
