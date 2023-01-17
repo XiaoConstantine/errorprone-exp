@@ -25,3 +25,12 @@ java_binary(
         ":m",
     ],
 )
+
+
+#java_test(
+#    name = "fooBarTest",
+#    srcs = ["FooBarCheckerTest.java"],
+#    deps = [
+#        "@maven//:junit_junit"
+#],
+#)

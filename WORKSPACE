@@ -140,6 +140,7 @@ maven_install(
         "com.google.inject:guice:5.1.0",
         "org.slf4j:slf4j-api:1.7.30",
         "org.slf4j:slf4j-jdk14:1.7.9",
+        "junit:junit:4.13",
     ],
     maven_install_json = "//:maven_install.json",
     fetch_sources = True,
